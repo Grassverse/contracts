@@ -51,6 +51,7 @@
 		"methodIdentifiers": {
 			"approve(address,uint256)": "095ea7b3",
 			"getApproved(uint256)": "081812fc",
+			"getArtist(uint256)": "811dd0e2",
 			"getCreator(uint256)": "d48e638a",
 			"getPrice(uint256)": "e7572230",
 			"isOnAuction(uint256)": "37e246ad",
@@ -93,6 +94,25 @@
 				{
 					"internalType": "address",
 					"name": "operator",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "getArtist",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
 					"type": "address"
 				}
 			],

@@ -19,6 +19,11 @@
 					},
 					{
 						"internalType": "uint256",
+						"name": "_artistRoyalty",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
 						"name": "_creatorRoyalty",
 						"type": "uint256"
 					}
@@ -368,6 +373,19 @@
 				"type": "event"
 			},
 			{
+				"inputs": [],
+				"name": "artistRoyaltyPercentage",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -511,7 +529,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "creatorRoylatyPercentage",
+				"name": "creatorRoyaltyPercentage",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -854,7 +872,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"newContracts/grassEscrow721.sol": "GrassEscrow"
+			"newContracts/dualMintGrassEscrow721.sol": "GrassEscrow"
 		},
 		"evmVersion": "berlin",
 		"libraries": {},
@@ -924,12 +942,12 @@
 				"dweb:/ipfs/QmPZoN9T3cb6o8bGhjBPZcz7im8T8DWhpr3tjLwhJJHx9N"
 			]
 		},
-		"newContracts/grassEscrow721.sol": {
-			"keccak256": "0xeedb5eb4d39cf5c6e0d6ba0eb6fd1eccf106aacd26dc5a21f39bbe070fef6087",
+		"newContracts/dualMintGrassEscrow721.sol": {
+			"keccak256": "0xf675c01caead3d79477a8af1526bd9f8044f9bc714c2ec9cd6d2142b004ac893",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://75e0677b1ebfc618f28dc0b422e077ff878adc228160f6032841286b47c6b350",
-				"dweb:/ipfs/QmVRe13wVdgAxhuUaAxY5JQjiQhvuR9Hvo4DzwbTKX2qsx"
+				"bzz-raw://f0fa23d14351cebd988b7bf502bca93c3b258a96b018facd87d0996dff18a2da",
+				"dweb:/ipfs/QmVB49HpCxy6BAHkYrP5XTjHVcbCvLubMBboRMCzCLNqPT"
 			]
 		}
 	},

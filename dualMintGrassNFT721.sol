@@ -21,10 +21,11 @@ contract GrassNFT is ERC721, ERC721Burnable, Ownable {
     
     struct NFT {
         string uri;
+        address artist;
         address creator;
     }
     
-    event NFTCreated(uint256 tokenId, string uri, address creator, string name, string description);
+    event NFTCreated(uint256 tokenId, string uri, address artist, address creator, string name, string description);
     event NFTBurnt(uint256 tokenId);
     
     constructor() ERC721("GRASS","GRASS") {
@@ -80,7 +81,12 @@ contract GrassNFT is ERC721, ERC721Burnable, Ownable {
     {
         return _nfts[tokenId].creator;
     }
-     
+    
+    function getArtist(uint256 tokenId) external view returns (address)
+    {
+        return _nfts[tokenId].artist;
+    }
+    
     function getCurrentCount() external view returns(uint256)
     {
         return _tokenCounter.current();
@@ -103,7 +109,7 @@ contract GrassNFT is ERC721, ERC721Burnable, Ownable {
     }
     
     
-    function mintNFT(address to, string memory uri, string memory name, string memory description) external returns (uint256) {
+    function mintNFT(address artist, address creator, string memory uri, string memory name, string memory description) external returns (uint256) {
         
         require(mintEnabled || approvedMintEnabled || msg.sender == owner(), "MINT: minting is paused.");
         require(mintEnabled || _mintApprovals[msg.sender] || msg.sender == owner(), "MINT: only approved minters can mint.");
@@ -111,12 +117,11 @@ contract GrassNFT is ERC721, ERC721Burnable, Ownable {
         _tokenCounter.increment();
 
         uint256 tokenId = _tokenCounter.current();
+        NFT memory newNFT = NFT({uri: uri, artist: artist, creator: creator });
         
-        emit NFTCreated(tokenId, uri, to, name, description);
+        emit NFTCreated(tokenId, uri, artist, creator, name, description);
         
-        _mint(to, tokenId);
-        
-        NFT memory newNFT = NFT(uri, to);
+        _mint(artist, tokenId);
         
         _nfts[tokenId] = newNFT;
         //_setTokenURI(newItemId, uri);
